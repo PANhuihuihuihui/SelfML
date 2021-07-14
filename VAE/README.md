@@ -10,7 +10,7 @@
     1. not konw distribution of z~p(z) will generate the usefull X
     2. xi data point we have is limited
 
-### VariationalAutoencoder
+### Variational Autoencoder
 ![image](./img/1.jpg)
 给定一个简单的分布，将采样的空间缩的很小.N(0,I)Decoder输入一个从N(0,I)中采样得到的 z 其实是希望由参数化的Decoder能够学会一个映射，N(x,y^2)
 比如说，我们的图片集可能是世界上所有的猫，那么抽样得到的一个可能代表颜色为橘色，耳朵为立耳的猫；而下次抽样得到的另一个可能代表颜色为白色，耳朵为折耳的猫。我们再假设，在这个下，这类立耳橘猫的图片像素值的分布服从一个多元高斯分布这样一来，我们的Decoder只需要通过神经网络，将变换为适当的我们就得到了这个多元高斯分布。之后我们就可以从中采样，得到立耳橘猫的图片了！
@@ -31,7 +31,8 @@ Some reference material
 1. [Tutorial on variational autoencoders](https://arxiv.org/pdf/1606.05908.pdf)
 2. [Towards a Deeper Understanding of Variational Autoencoding Models](https://arxiv.org/pdf/1702.08658.pdf)
 3. [Zhihu](https://zhuanlan.zhihu.com/p/348498294)
-
+### Conditional Variational Autoencoder
+![image](./img/cvae.png)
 ### VQ-VAE [[Paper]](https://arxiv.org/pdf/1711.00937.pdf) [[Code]](https://github.com/deepmind/sonnet/blob/v2/sonnet/src/nets/vqvae.py)
 ![image](./img/3.png)
 - Self-define Highlight

@@ -89,7 +89,7 @@ class CVAE(VAE):
 
     def forward(self, X, y=None, *args, **kwargs):
         y = y.to(next(self.parameters()).device)
-        X_given_Y = torch.cat((X, y.unsqueeze(1)), dim=1)
+        X_given_Y = torch.cat((X, y.unsqueeze(1)), dim=1) # (B*(C+1)*hw)
 
         mu, log_var = self.encoder(X_given_Y)
         z = self.reparameterization(mu, log_var)
