@@ -11,6 +11,13 @@ from torchvision.datasets import MNIST
 
 
 class VAE(nn.Module):
+    """
+    Args:
+        in_feature: size of Xi
+        latent_size : size of Zi
+        y_size: lable size
+
+    """
 
     def __init__(self, in_features, latent_size, y_size=0):
         super(VAE, self).__init__()
@@ -35,12 +42,24 @@ class VAE(nn.Module):
         )
 
     def encoder(self, X):
+        """
+        input: (B*c*H*W) >>> B*1*in_feature
+        return:
+            mu: (B*1*latent)
+            log_var: (B*1*latent)
+        """
         out = self.encoder_forward(X)
         mu = out[:, :self.latent_size]
         log_var = out[:, self.latent_size:]
         return mu, log_var
 
     def decoder(self, z):
+        """
+        input: (B*1*latent) >>> B*1*in_feature
+        return:
+            mu: (B*1*latent)
+            log_var: (B*1*latent)
+        """
         mu_prime = self.decoder_forward(z)
         return mu_prime
 
@@ -162,6 +181,7 @@ def main():
         loss = train(cvae, optimizer, data_loader, device, name='CVAE')
         print("Epochs: {epoch}, AvgLoss: {loss:.4f}".format(epoch=epoch, loss=loss))
     print('Training for CVAE has been done.')
+
 
     save_res(vae, cvae, data, latent_size, device)
 

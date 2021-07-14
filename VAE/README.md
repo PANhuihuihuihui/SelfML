@@ -20,6 +20,13 @@
 - Empirical Lower Bound
     加入变分推断的思想，引入ELBO (Empirical Lower Bound)
     ![image](./img/2.png)
+    我们只需要最大化 l 就能最大化 log 并且最小化 KL
+- Loss
+    ![image](./img/loss_1.png)
+    ![image](./img/loss_2.png)
+    ![image](./img/loss_3.png)
+    到这里，我们终于得到了在假设先验、后验、似然均是高斯分布的情况下，VAE最终的损失函数。值得一提的是，通常人们采用高斯分布只是因为其简便性。我们也可以根据数据的情况，假设更加复杂分布来推导、训练VAE。在这种情况下，VAE可能计算会更加复杂，但也可能会得到更强的表达能力。
+    
 Some reference material
 1. [Tutorial on variational autoencoders](https://arxiv.org/pdf/1606.05908.pdf)
 2. [Towards a Deeper Understanding of Variational Autoencoding Models](https://arxiv.org/pdf/1702.08658.pdf)
@@ -48,7 +55,7 @@ Reflaction:
 > eg: 图片里某个object会覆盖很多pixel, 音频中一个phoneme会持续很多samples/frames, 而不会去学一些特别细节的东西.
 
 Question:
-1. PixelCNN
+1. PixelCNN [[Paper]](https://arxiv.org/pdf/1606.05328.pdf)[[Link]]()
 2. Experiment and code
 
 ### VQ-VAE-2 [[Paper]](https://arxiv.org/pdf/1906.00446.pdf)[[Code]](https://github.com/deepmind/sonnet)
